@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adjust Maadi — ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ | Now Showing in Namma Bengaluru</title>
+  <meta name="description" content="A Namma Bengaluru potboiler. Silk Board, auto meters, water tankers, potholes, ten-month deposits. One solution. Adjust maadi. Plus Adjust Maadi Radio.">
+  <meta property="og:title" content="ADJUST MAADI — ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ">
+  <meta property="og:description" content="A new scene from Namma Bengaluru every time you open it. Blockbuster. Housefull. 100 days at Silk Board.">
+  <meta property="og:url" content="https://adjustmaadi.com/">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#2a0612">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500;700;800&family=Bungee&family=Bungee+Shade&family=Courier+Prime:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>★ HOUSEFULL ★ 100 DAYS AT SILK BOARD ★ ಸೂಪರ್ ಹಿಟ್ ★ NOW SHOWING IN EVERY POTHOLE NEAR YOU ★ ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ ★ ADVANCE BOOKING OPEN (10 MONTHS DEPOSIT) ★ </span>
+      <span>★ HOUSEFULL ★ 100 DAYS AT SILK BOARD ★ ಸೂಪರ್ ಹಿಟ್ ★ NOW SHOWING IN EVERY POTHOLE NEAR YOU ★ ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ ★ ADVANCE BOOKING OPEN (10 MONTHS DEPOSIT) ★ </span>
+    </div>
+  </div>
+
+  <header class="poster">
+    <div class="poster__rays" aria-hidden="true"></div>
+    <p class="poster__presents">Namma Bengaluru Talkies <span class="dot">•</span> ನಮ್ಮ ಬೆಂಗಳೂರು ಟಾಕೀಸ್ <span class="dot">•</span> presents</p>
+    <h1 class="poster__title">
+      <span class="poster__kn" lang="kn">ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ</span>
+      <span class="poster__en">ADJUST MAADI</span>
+    </h1>
+    <p class="poster__tag">One city. Ten thousand problems. <strong>One solution.</strong></p>
+    <div class="badges" aria-hidden="true">
+      <span class="badge badge--cert"><b>U/A</b><small>Understand &amp; Adjust</small></span>
+      <span class="badge badge--days"><b>100</b><small>DAYS at<br>Silk Board</small></span>
+      <span class="badge badge--hit"><b lang="kn">ಸೂಪರ್</b><small>HIT</small></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="reel" aria-labelledby="scene-title">
+      <div class="reel__sprockets reel__sprockets--l" aria-hidden="true"></div>
+      <div class="reel__sprockets reel__sprockets--r" aria-hidden="true"></div>
+
+      <div class="countdown" id="countdown" aria-hidden="true"><span id="countdown-n">3</span></div>
+
+      <article class="scene" id="scene" aria-live="polite">
+        <p class="scene__reel" id="scene-reel">REEL 1</p>
+        <h2 class="scene__title" id="scene-title">
+          <span class="scene__title-kn" lang="kn" id="scene-title-kn"></span>
+          <span class="scene__title-en" id="scene-title-en"></span>
+        </h2>
+        <p class="scene__slug" id="scene-slug"></p>
+        <ul class="scene__cast" id="scene-cast"></ul>
+        <p class="scene__action" id="scene-action"></p>
+        <div class="scene__lines" id="scene-lines"></div>
+        <p class="scene__sfx" id="scene-sfx"></p>
+      </article>
+
+      <div class="slam" id="slam" aria-hidden="true">
+        <div class="slam__lines"></div>
+        <div class="slam__stamp">
+          <span class="slam__kn" lang="kn">ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ!</span>
+          <span class="slam__en">ADJUST MAADI!</span>
+        </div>
+      </div>
+      <p class="chorus" id="chorus"></p>
+
+      <div class="actions">
+        <button class="btn btn--primary" id="next-scene" type="button">
+          <span lang="kn">ಇನ್ನೊಂದು ಸೀನ್</span> · Next scene
+        </button>
+        <a class="btn btn--wa" id="share-wa" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
+        <button class="btn btn--ghost" id="copy-link" type="button">Copy link</button>
+      </div>
+      <p class="reel__count" id="reel-count"></p>
+    </section>
+
+    <section class="radio" id="radio" aria-labelledby="radio-title">
+      <div class="radio__body">
+        <div class="radio__head">
+          <div class="radio__brand">
+            <h2 id="radio-title">Adjust Maadi Radio</h2>
+            <p class="radio__freq"><span class="radio__mhz">98.3</span> FM <span class="radio__sub">· the frequency of patience</span></p>
+          </div>
+          <div class="radio__onair" id="onair" aria-hidden="true">ON AIR</div>
+        </div>
+
+        <div class="radio__grid">
+          <div class="radio__screen">
+            <div id="yt-player" class="radio__player"></div>
+            <div class="radio__idle" id="radio-idle">
+              <p class="radio__idle-kn" lang="kn">ಹಾಡು ಹಾಕಿ ಗುರು</p>
+              <p>Put a song on, guru. Traffic is long.</p>
+            </div>
+          </div>
+
+          <div class="radio__side">
+            <p class="radio__label">NOW PLAYING</p>
+            <p class="radio__now" id="now-title">Tune in. Silk Board will wait. It always does.</p>
+            <p class="radio__film" id="now-film"></p>
+            <p class="radio__vibe" id="now-vibe"></p>
+            <div class="radio__controls">
+              <button class="knob knob--play" id="radio-play" type="button" aria-label="Play">▶ <span>Play</span></button>
+              <button class="knob" id="radio-next" type="button" aria-label="Next song">⏭ <span>Next</span></button>
+              <button class="knob" id="radio-shuffle" type="button" aria-pressed="true" aria-label="Shuffle">🔀 <span>Shuffle</span></button>
+            </div>
+            <div class="chips" role="group" aria-label="Language">
+              <button class="chip is-on" data-lang="all" type="button">All South</button>
+              <button class="chip" data-lang="Kannada" type="button" lang="kn">ಕನ್ನಡ</button>
+              <button class="chip" data-lang="Tamil" type="button">தமிழ்</button>
+              <button class="chip" data-lang="Telugu" type="button">తెలుగు</button>
+              <button class="chip" data-lang="Malayalam" type="button">മലയാളം</button>
+            </div>
+          </div>
+        </div>
+
+        <ol class="tracklist" id="tracklist"></ol>
+        <p class="radio__fine">Songs play from their official uploads on YouTube. All rights with the labels and artists. We just pressed play.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="credits">
+    <p class="credits__block">
+      <span>STARRING <b>YOU</b> as the Common Man</span>
+      <span>VILLAIN <b>Silk Board Junction</b></span>
+      <span>MUSIC <b>Horn OK Please</b></span>
+      <span>STUNTS <b>Two-wheelers on the Footpath</b></span>
+      <span>DIALOGUES <b>Auto Anna</b></span>
+      <span>PRODUCED BY <b>Ten Months' Advance</b></span>
+    </p>
+    <p class="credits__by">
+      WRITTEN &amp; DIRECTED BY
+      <a href="https://wetwicket.com">Avirook Sen</a>,
+      <a href="https://narendranag.com">Narendra Nag</a>
+      &amp; <b>Claude</b>
+    </p>
+    <p class="credits__love">A parody made with love for Namma Bengaluru. <span lang="kn">ನಮ್ಮ ಬೆಂಗಳೂರು, ನಮ್ಮ ಹೆಮ್ಮೆ.</span></p>
+    <p class="credits__fine">No autos were harmed in the making of this website. They all refused to come. · <a href="https://github.com/narendranag/adjustmaadi">Source (MIT)</a></p>
+  </footer>
+
+  <script src="/scenes.js"></script>
+  <script src="/playlist.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
