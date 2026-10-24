@@ -1,0 +1,40 @@
+# analytics.yaml — GA4 + Google Tag Manager for Adjust Maadi. Source of truth; `analytics setup` and
+# `analytics sync` apply it and write the IDs below. Marketing events only: in-app behaviour goes to PostHog.
+# Guide: ~/claude-computer/docs/DEV-GUIDELINES.md, "Analytics".
+project: Adjust Maadi
+domain: adjustmaadi.com
+ga:
+  google_signals: false   # advertising features off
+  account: accounts/324788655
+  property: properties/556164720
+  stream: properties/556164720/dataStreams/15854535905
+  measurement_id: G-XER5EB62JR
+gtm:
+  account: accounts/211176835
+  container: accounts/211176835/containers/283420430
+  public_id: GTM-TWQ98P9Q
+  workspace: accounts/211176835/containers/283420430/workspaces/2
+events:
+  # public/app.js: window.dataLayer.push({event: 'share', method: 'whatsapp' | 'copy_link', item_id: <scene id>})
+  - name: share
+    key_event: true
+    params: [method, item_id]
+custom_dimensions:
+  - parameter: method
+    name: Share method
+  - parameter: item_id
+    name: Scene
+funnels:
+  share:
+    steps: [page_view, share]
+reports:
+  acquisition:
+    dimensions: [sessionDefaultChannelGroup, sessionSource]
+    metrics: [sessions, totalUsers, keyEvents]
+  landing-pages:
+    dimensions: [landingPage]
+    metrics: [sessions, keyEvents]
+  shares:
+    event: share
+    dimensions: ["customEvent:method", "customEvent:item_id"]
+    metrics: [eventCount]

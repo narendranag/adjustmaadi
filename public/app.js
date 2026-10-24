@@ -15,6 +15,8 @@
   const scenes = window.SCENES
   let current = null
   let timers = []
+  // GA4 'share' (analytics.yaml): until the banner's yes, GA gets it cookieless.
+  const track = (method) => (window.dataLayer = window.dataLayer || []).push({ event: 'share', method, item_id: current?.id })
   const clearTimers = () => { timers.forEach(clearTimeout); timers = [] }
   const later = (fn, ms) => timers.push(setTimeout(fn, ms))
 
@@ -127,6 +129,7 @@
   })
   $('copy-link').addEventListener('click', async (e) => {
     const btn = e.currentTarget
+    track('copy_link')
     try {
       await navigator.clipboard.writeText(btn.dataset.url)
       btn.textContent = 'Copied, guru!'
@@ -134,6 +137,8 @@
       btn.textContent = btn.dataset.url
     }
   })
+
+  $('share-wa').addEventListener('click', () => track('whatsapp'))
 
   play(pickScene())
 

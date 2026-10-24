@@ -1,13 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XER5EB62JR"></script>
+  <!-- Google Tag Manager (GTM-TWQ98P9Q, analytics.yaml), which loads GA4. Consent Mode starts denied
+       for everyone; a stored "yes" from the banner (/consent.js) is replayed before the container loads. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XER5EB62JR');
+    gtag('consent', 'default', {analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'});
+    try { if (localStorage.getItem('analytics-consent') === 'granted') gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TWQ98P9Q');
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -147,11 +151,12 @@
       &amp; <b>Claude</b>
     </p>
     <p class="credits__love">A parody made with love for Namma Bengaluru. <span lang="kn">ನಮ್ಮ ಬೆಂಗಳೂರು, ನಮ್ಮ ಹೆಮ್ಮೆ.</span></p>
-    <p class="credits__fine">No autos were harmed in the making of this website. They all refused to come. · <a href="https://github.com/narendranag/adjustmaadi">Source (MIT)</a></p>
+    <p class="credits__fine">No autos were harmed in the making of this website. They all refused to come. · <a href="https://github.com/narendranag/adjustmaadi">Source (MIT)</a> · <button class="credits__link" type="button" data-consent-reopen>Cookie settings</button></p>
   </footer>
 
   <script src="/scenes.js"></script>
   <script src="/playlist.js"></script>
   <script src="/app.js"></script>
+  <script src="/consent.js"></script>
 </body>
 </html>

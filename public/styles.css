@@ -496,3 +496,33 @@ main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
 .credits__by b { color: var(--jasmine); }
 .credits__by small { display: block; margin-top: 6px; letter-spacing: 0; font-size: 0.8rem; }
 .credits__by small a { font-family: inherit; font-size: inherit; }
+
+/* ——— cookie banner (consent.js) ——— */
+.cb {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  background: var(--paper);
+  color: var(--paper-ink);
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--kumkum);
+  font-family: var(--script);
+  font-size: 0.9rem;
+}
+.cb p { margin: 0 0 12px; }
+.cb__row { display: flex; flex-wrap: wrap; gap: 10px; }
+.cb .btn { cursor: pointer; font-size: 0.85rem; padding: 8px 14px; }
+.credits__link {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--turmeric);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
