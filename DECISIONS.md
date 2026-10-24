@@ -18,3 +18,6 @@ Append-only. `- [<host>] [YYYY-MM-DD] <decision> — <why>`
 - [mini] [2026-10-24] No GTM <noscript> iframe — with JavaScript off there is no banner to ask, so nothing loads
 - [mini] [2026-10-24] Repo secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID set on narendranag/adjustmaadi with `deploy-secrets github` (pre-approved for the owner's repos) — for .github/workflows/deploy.yml
 - [mini] [2026-10-24] A push to main deploys (templates/web's deploy.yml, cut to `node --check` + `wrangler deploy` for a static site) — so main is what's live
+- [mini] [2026-10-24] Always Use HTTPS on the whole adjustmaadi.com zone (the owner's OK) — http:// answered 200; the zone holds only this site
+- [mini] [2026-10-24] GTM version 2 published and the consent pages deployed through the new workflow (the owner's OK) — analytics preview passed against localhost first, and again against production
+- [mini] [2026-10-24] The deploy action pins wrangler 4.152.0 — with no package.json it fell back to wrangler 3, which fails on an assets-only config
