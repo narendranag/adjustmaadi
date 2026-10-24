@@ -2,7 +2,6 @@
 
 ## Now
 
-- [ ] GA counts `?s=<scene>` as a site search (`view_search_results` on every scene load): the owner takes `s` out of the stream's site-search query parameters (GA admin → Data streams → Enhanced measurement → Site search) #analytics @owner
 
 ## Next
 
@@ -12,6 +11,8 @@
 - [ ] A sitemap (`public/sitemap.xml`), then `searchconsole sitemaps submit` (ask) and `searchconsole audit adjustmaadi.com` #seo
 
 ## Done
+
+- [x] GA no longer counts `?s=<scene>` as a site search: the owner changed the stream's Site search settings in GA admin (2026-10-24) #analytics
 
 - [x] http → https: Always Use HTTPS on the zone (`https-check --fix`, with the owner's OK); both names now 301 to https (2026-10-24) #seo
 
