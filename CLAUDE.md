@@ -20,7 +20,9 @@ This brain follows `~/claude-computer/docs/DEV-GUIDELINES.md`; the fleet's tools
 
 `just run` (`wrangler dev`, http://localhost:8787) · `just test` (every script parses) · `just lint` · `just deploy`.
 
-**A push to `main` deploys** (`.github/workflows/deploy.yml`: every script parses, then `wrangler deploy`, with the repo secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`). So merging to `main` is a production deploy: the owner's OK. `just deploy` still works by hand.
+**A push to `main` deploys** (`.github/workflows/deploy.yml`: every script parses, then `wrangler deploy`, with the repo secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`). So merging to `main` is a production deploy: the owner's OK. `just deploy` still works by hand. The action pins wrangler (`wranglerVersion` in `deploy.yml`): with no `package.json` it would fall back to wrangler 3, which fails on this assets-only config ("Missing entry-point"). Keep it in step with `npx wrangler --version`.
+
+Always Use HTTPS is on for the whole zone (`https-check adjustmaadi.com www.adjustmaadi.com`). GA site search no longer reads `s`, so `/?s=<scene>` links are not counted as searches.
 
 ## Analytics
 
