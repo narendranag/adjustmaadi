@@ -1,0 +1,36 @@
+# Deploy to Cloudflare Workers on every push to main, after the checks pass.
+# From ~/claude-computer/templates/web/.github/workflows/deploy.yml, cut down for a static site with no
+# build step and no dependencies: the check is `just test` (every script parses), then `wrangler deploy`.
+#
+# Needs two repo secrets (Settings → Secrets and variables → Actions), set from the secrets store with
+# `deploy-secrets github narendranag/adjustmaadi CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID`:
+#   CLOUDFLARE_API_TOKEN   a token from the "Edit Cloudflare Workers" template, scoped to this account
+#   CLOUDFLARE_ACCOUNT_ID  the account id
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: every script parses
+        run: for f in public/*.js; do node --check "$f"; done
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy

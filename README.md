@@ -15,15 +15,17 @@ Live at https://adjustmaadi.com.
 - `public/playlist.js`: the radio. Every `id` is a YouTube video checked as embeddable through
   `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<id>`; re-check before adding.
 - `public/app.js`: the reel (countdown, staged reveal, the slam) and the radio (YouTube IFrame API,
-  shuffle, language filter).
+  shuffle, language filter), and the `share` event.
+- `public/consent.js`: the cookie banner. Analytics starts with consent denied; see `analytics.yaml`.
 - `wrangler.jsonc`: a static-assets Worker, routed to `adjustmaadi.com` and `www.adjustmaadi.com`.
 
 ## Run and deploy
 
 ```sh
 npx wrangler dev          # http://localhost:8787
-npx wrangler deploy       # needs a Cloudflare login on the account that owns adjustmaadi.com
 ```
+
+A push to `main` deploys (`.github/workflows/deploy.yml`, after every script parses).
 
 There is no build step and no dependencies.
 

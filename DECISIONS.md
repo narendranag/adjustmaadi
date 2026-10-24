@@ -13,3 +13,8 @@ Append-only. `- [<host>] [YYYY-MM-DD] <decision> — <why>`
 ## Since
 
 - [mini] [2026-10-24] adjustmaadi gets a brain (the owner: "Set up adjustmaadi") — it served a live site with no CLAUDE.md, so no brain audit saw it
+- [mini] [2026-10-24] GA4 moves into Tag Manager (GTM-TWQ98P9Q, analytics.yaml) behind a cookie banner with Consent Mode v2, denied by default; gtag.js is gone from the pages — DEV-GUIDELINES "Analytics" and "Consent"; closes the gtag.js deviation carried over above
+- [mini] [2026-10-24] The one GA event is `share` (method, item_id), a key event — the only marketing action on a one-page site; play, next scene and the radio are in-page behaviour, not marketing
+- [mini] [2026-10-24] No GTM <noscript> iframe — with JavaScript off there is no banner to ask, so nothing loads
+- [mini] [2026-10-24] Repo secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID set on narendranag/adjustmaadi with `deploy-secrets github` (pre-approved for the owner's repos) — for .github/workflows/deploy.yml
+- [mini] [2026-10-24] A push to main deploys (templates/web's deploy.yml, cut to `node --check` + `wrangler deploy` for a static site) — so main is what's live

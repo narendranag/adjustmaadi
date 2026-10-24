@@ -10,7 +10,9 @@ This brain follows `~/claude-computer/docs/DEV-GUIDELINES.md`; the fleet's tools
 
 - `public/scenes.js`: the scenes, one object each (Kannada lines, transliteration, English). Add an object to add a scene; the page picks one at random (never the one just seen), and `/?s=<id>` links to one.
 - `public/playlist.js`: the radio. Every `id` is a YouTube video checked as embeddable through `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<id>`; re-check before adding.
-- `public/app.js`: the reel (countdown, staged reveal, the slam) and the radio (YouTube IFrame API, shuffle, language filter).
+- `public/app.js`: the reel (countdown, staged reveal, the slam), the radio (YouTube IFrame API, shuffle, language filter) and the `share` event.
+- `public/consent.js`: the cookie banner; the Consent Mode defaults sit in the `<head>` of `index.html` and `404.html`.
+- `analytics.yaml`: GA4 and Tag Manager (`analytics sync`, `preview`, `publish`).
 - `wrangler.jsonc`: the static-assets Worker, routed to `adjustmaadi.com` and `www.adjustmaadi.com` (custom domains).
 - Tasks: `TASKS.md`. Decisions: `DECISIONS.md`. Docs: `docs/`.
 
@@ -18,11 +20,11 @@ This brain follows `~/claude-computer/docs/DEV-GUIDELINES.md`; the fleet's tools
 
 `just run` (`wrangler dev`, http://localhost:8787) · `just test` (every script parses) · `just lint` · `just deploy`.
 
-**Deploy is by hand** (`npx wrangler deploy`, on the Cloudflare account that owns adjustmaadi.com): there is no deploy workflow, so landing on `main` does not deploy. A production deploy is the owner's OK.
+**A push to `main` deploys** (`.github/workflows/deploy.yml`: every script parses, then `wrangler deploy`, with the repo secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`). So merging to `main` is a production deploy: the owner's OK. `just deploy` still works by hand.
 
 ## Analytics
 
-GA4 property "Adjust Maadi" (`G-XER5EB62JR`), loaded with `gtag.js` straight in `index.html` and `404.html`. That is a deviation from DEV-GUIDELINES ("Analytics": Tag Manager from an `analytics.yaml`, and a consent banner with Consent Mode before anything goes live): see `DECISIONS.md` and `TASKS.md`.
+GA4 property "Adjust Maadi" (`G-XER5EB62JR`), loaded only through Tag Manager (`GTM-TWQ98P9Q`), both from `analytics.yaml`, as DEV-GUIDELINES ("Analytics") says. Consent Mode v2 starts denied for every visitor; the banner (`public/consent.js`) asks, and "Cookie settings" in the footer asks again. Events: `share` (`method`: `whatsapp` | `copy_link`, `item_id`: the scene). Run `analytics preview --url http://localhost:8787 --consent '.cb [data-choice="granted"]'` before every `analytics publish`, which is the owner's OK.
 
 ## Rules
 
