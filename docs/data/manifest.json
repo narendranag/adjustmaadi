@@ -1,0 +1,89 @@
+{
+  "title": "Adjust Maadi documentation",
+  "summary": "Index of the documentation for Adjust Maadi.",
+  "source_of_truth": "markdown",
+  "documents": [
+    {
+      "id": "index",
+      "title": "Adjust Maadi documentation",
+      "order": 0,
+      "summary": "Index of the documentation for Adjust Maadi.",
+      "status": "design",
+      "updated": "2026-10-24",
+      "audience": [
+        "everyone"
+      ],
+      "depends_on": [],
+      "related": [
+        "overview"
+      ],
+      "defines": [],
+      "answers": [
+        "Which document covers which topic?",
+        "What do the core terms mean?",
+        "Where are the machine-readable versions of these documents?"
+      ],
+      "file": "README.md",
+      "sections": [
+        {
+          "level": 2,
+          "title": "Reading order",
+          "anchor": "reading-order"
+        },
+        {
+          "level": 2,
+          "title": "Terms used throughout",
+          "anchor": "terms-used-throughout"
+        },
+        {
+          "level": 2,
+          "title": "Ways to read these documents",
+          "anchor": "ways-to-read-these-documents"
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "title": "Overview",
+      "order": 1,
+      "summary": "What Adjust Maadi is, the ideas behind it, and what is in and out of scope.",
+      "status": "design",
+      "updated": "2026-10-24",
+      "audience": [
+        "everyone"
+      ],
+      "depends_on": [
+        "index"
+      ],
+      "related": [],
+      "defines": [],
+      "answers": [
+        "What is Adjust Maadi for?",
+        "What is deliberately out of scope?"
+      ],
+      "file": "01-overview.md",
+      "sections": [
+        {
+          "level": 2,
+          "title": "What it is",
+          "anchor": "what-it-is"
+        },
+        {
+          "level": 2,
+          "title": "The ideas behind it",
+          "anchor": "the-ideas-behind-it"
+        },
+        {
+          "level": 2,
+          "title": "Scope",
+          "anchor": "scope"
+        },
+        {
+          "level": 2,
+          "title": "What stays hard",
+          "anchor": "what-stays-hard"
+        }
+      ]
+    }
+  ]
+}
