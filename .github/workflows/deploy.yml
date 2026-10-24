@@ -33,4 +33,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # No package.json to pin it, so the action would fall back to an old wrangler 3, which cannot
+          # read an assets-only config ("Missing entry-point"). Keep in step with `npx wrangler --version`.
+          wranglerVersion: "4.152.0"
           command: deploy
