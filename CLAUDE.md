@@ -32,4 +32,3 @@ GA4 property "Adjust Maadi" (`G-XER5EB62JR`), loaded only through Tag Manager (`
 
 - Songs belong to their labels and artists: embed official uploads only, never host audio.
 - Nothing published (a deploy, an analytics change) without the owner's OK.
-- **Delegate to Sonnet and Haiku subagents** (owner's rule, 2026-11-07): work that can be delegated or run in parallel goes to a subagent with `model: "sonnet"` (building, editing, research, reviews) or `model: "haiku"` (mechanical lookups, searches, bulk reformatting). This session keeps the decisions, the conversation with the owner, and the review of what comes back. Detail: `~/claude-computer/claude-global/CLAUDE.md`.
