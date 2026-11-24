@@ -8,9 +8,12 @@
 
 ## Later
 
+- [ ] Browser errors to crashyard with the Sentry browser SDK (the `errors` skill, `crashyard project dsn adjustmaadi`); then `crashyard project set adjustmaadi --no-worker-exceptions` only if a Worker script ever gets the SDK #ops
 - [ ] A sitemap (`public/sitemap.xml`), then `searchconsole sitemaps submit` (ask) and `searchconsole audit adjustmaadi.com` #seo
 
 ## Done
+
+- [x] Worker errors to crashyard: `tail_consumers` in `wrangler.jsonc` (66a0f60), deployed 2026-11-24 04:16 UTC, reported to the crashyard session; the CI wrangler pin bumped to 4.167.0 (beacc74), deployed 04:19 UTC #ops
 
 - [x] GA no longer counts `?s=<scene>` as a site search: the owner changed the stream's Site search settings in GA admin (2026-10-24) #analytics
 

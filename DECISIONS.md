@@ -21,3 +21,5 @@ Append-only. `- [<host>] [YYYY-MM-DD] <decision> — <why>`
 - [mini] [2026-10-24] Always Use HTTPS on the whole adjustmaadi.com zone (the owner's OK) — http:// answered 200; the zone holds only this site
 - [mini] [2026-10-24] GTM version 2 published and the consent pages deployed through the new workflow (the owner's OK) — analytics preview passed against localhost first, and again against production
 - [mini] [2026-10-24] The deploy action pins wrangler 4.152.0 — with no package.json it fell back to wrangler 3, which fails on an assets-only config
+- [mini] [2026-11-24] crashyard is this Worker's Tail Worker (`tail_consumers`), on the crashyard brain's brief and the owner's OK — the fleet's error tracker; an assets-only Worker may produce few or no tail events
+- [mini] [2026-11-24] The deploy action's wrangler pin moved 4.152.0 → 4.167.0 (the owner's OK) — kept in step with `npx wrangler --version`

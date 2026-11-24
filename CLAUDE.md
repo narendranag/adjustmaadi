@@ -22,6 +22,8 @@ This brain follows `~/claude-computer/docs/DEV-GUIDELINES.md`; the fleet's tools
 
 **A push to `main` deploys** (`.github/workflows/deploy.yml`: every script parses, then `wrangler deploy`, with the repo secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`). So merging to `main` is a production deploy: the owner's OK. `just deploy` still works by hand. The action pins wrangler (`wranglerVersion` in `deploy.yml`): with no `package.json` it would fall back to wrangler 3, which fails on this assets-only config ("Missing entry-point"). Keep it in step with `npx wrangler --version`.
 
+Errors: `wrangler.jsonc` names crashyard (https://crashyard.marain.space, project `adjustmaadi`) as the Tail Worker, so a failed Worker run becomes an issue there; with no Worker script, expect few or none. A deploy log should say "sending Tail events to … crashyard". Browser errors would need the Sentry SDK (the `errors` skill).
+
 Always Use HTTPS is on for the whole zone (`https-check adjustmaadi.com www.adjustmaadi.com`). GA site search no longer reads `s`, so `/?s=<scene>` links are not counted as searches.
 
 ## Analytics
