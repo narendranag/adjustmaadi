@@ -7,5 +7,7 @@
   "routes": [
     { "pattern": "adjustmaadi.com", "custom_domain": true },
     { "pattern": "www.adjustmaadi.com", "custom_domain": true }
-  ]
+  ],
+  // Errors go to the fleet's tracker, crashyard, as this Worker's Tail Worker.
+  "tail_consumers": [{ "service": "crashyard" }]
 }
