@@ -23,3 +23,4 @@ Append-only. `- [<host>] [YYYY-MM-DD] <decision> — <why>`
 - [mini] [2026-10-24] The deploy action pins wrangler 4.152.0 — with no package.json it fell back to wrangler 3, which fails on an assets-only config
 - [mini] [2026-11-24] crashyard is this Worker's Tail Worker (`tail_consumers`), on the crashyard brain's brief and the owner's OK — the fleet's error tracker; an assets-only Worker may produce few or no tail events
 - [mini] [2026-11-24] The deploy action's wrangler pin moved 4.152.0 → 4.167.0 (the owner's OK) — kept in step with `npx wrangler --version`
+- [mini] [2026-11-28] The nine DESIGN.md drift items fixed and deployed as one commit (the owner's OK in this tab) — fonts on the 404, unused font and token dropped, recurring radio colours named, late CSS overrides folded in; the ON AIR off lamp stays dim on purpose
