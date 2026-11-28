@@ -6,6 +6,7 @@
 ## Next
 
 
+- [ ] CI runs only the jobs a commit can affect (fleet rule, 2026-11-28; DEV-GUIDELINES CI row): copy `~/claude-computer/templates/_shared/scripts/ci-changes.sh` into `scripts/`, add the `changes` job (fetch-depth 0, `permissions: actions: read`, GH_TOKEN), an always-on `docs` job, and `needs: changes` + `if: needs.changes.outputs.code == 'true'` on the rest (template: `~/claude-computer/templates/web/.github/workflows/ci.yml`). First check what your code, tests and build read: narrow SKIP or extend KEEP so no Markdown they read is skipped. Then one notes-only commit to prove only `docs` runs and the run is green. Batch notes commits from now on. #ci
 ## Later
 
 - [ ] Browser errors to crashyard with the Sentry browser SDK (the `errors` skill, `crashyard project dsn adjustmaadi`); then `crashyard project set adjustmaadi --no-worker-exceptions` only if a Worker script ever gets the SDK #ops
