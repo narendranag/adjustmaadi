@@ -1,6 +1,5 @@
 :root {
   --maroon: #2a0612;
-  --maroon-2: #4a0b1f;
   --ink: #140409;
   --turmeric: #ffc72c;
   --marigold: #ff8a00;
@@ -13,6 +12,9 @@
   --display: 'Bungee', 'Oswald', Impact, sans-serif;
   --kn: 'Baloo Tamma 2', 'Noto Sans Kannada', sans-serif;
   --script: 'Courier Prime', 'Courier New', monospace;
+  --wood: #7a1e10;
+  --wood-2: #4a0f08;
+  --screen: #120806;
 }
 
 * { box-sizing: border-box; }
@@ -25,6 +27,7 @@ body {
   background-color: var(--maroon);
   color: var(--jasmine);
   font-family: 'Oswald', system-ui, sans-serif;
+  font-weight: 500;
   line-height: 1.45;
   overflow-x: hidden;
 }
@@ -86,6 +89,9 @@ button { font: inherit; cursor: pointer; }
   color: var(--jasmine);
   text-shadow: 3px 3px 0 var(--kumkum), 6px 6px 0 var(--ink);
   transform: rotate(-2deg);
+  /* Kannada stacked consonants (ottakshara) hang below the line; give them room. */
+  line-height: 1.3;
+  padding-bottom: 0.12em;
 }
 .poster__en {
   display: block;
@@ -104,7 +110,7 @@ button { font: inherit; cursor: pointer; }
 .poster__tag {
   margin: 18px auto 0;
   font-size: clamp(1rem, 3.4vw, 1.35rem);
-  max-width: 34ch;
+  max-width: 42ch;
 }
 .poster__tag strong { color: var(--turmeric); }
 .badges { display: flex; justify-content: center; gap: 14px; margin-top: 22px; flex-wrap: wrap; }
@@ -149,6 +155,7 @@ main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
   background: repeating-linear-gradient(180deg, var(--ink) 0 8px, var(--paper) 8px 18px, var(--ink) 18px 26px);
   border-left: 7px solid var(--ink);
   border-right: 7px solid var(--ink);
+  z-index: 3;
 }
 .reel__sprockets--l { left: 0; }
 .reel__sprockets--r { right: 0; }
@@ -171,6 +178,8 @@ main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
   font-weight: 800;
   font-size: clamp(1.8rem, 6vw, 2.8rem);
   color: var(--kumkum);
+  line-height: 1.3;
+  padding-bottom: 0.12em;
 }
 .scene__title-en {
   display: block;
@@ -257,6 +266,8 @@ main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
   font-size: clamp(2.4rem, 10vw, 4.6rem);
   color: var(--kumkum);
   text-shadow: 3px 3px 0 var(--turmeric), 6px 6px 0 var(--ink);
+  line-height: 1.3;
+  padding-bottom: 0.12em;
 }
 .slam__en {
   display: inline-block;
@@ -313,7 +324,7 @@ main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
 .btn--primary { background: var(--kumkum); color: var(--jasmine); }
 .btn--wa { background: var(--parrot); color: var(--jasmine); }
 .btn--ghost { background: var(--turmeric); }
-.btn:focus-visible, .chip:focus-visible, .knob:focus-visible, .tracklist button:focus-visible {
+.btn:focus-visible, .chip:focus-visible, .knob:focus-visible, .tracklist button:focus-visible, .credits__link:focus-visible {
   outline: 3px solid var(--magenta);
   outline-offset: 3px;
 }
@@ -324,7 +335,7 @@ main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
 .radio__body {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.08), transparent 30%),
-    linear-gradient(135deg, #7a1e10, #4a0f08);
+    linear-gradient(135deg, var(--wood), var(--wood-2));
   border: 4px solid var(--ink);
   border-radius: 26px;
   padding: 22px;
@@ -338,7 +349,7 @@ main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
   top: -34px;
   width: 60%;
   height: 34px;
-  border: 4px solid var(--ink);
+  border: 4px solid var(--turmeric);
   border-bottom: 0;
   border-radius: 40px 40px 0 0;
   transform: translateX(-50%);
@@ -355,6 +366,7 @@ main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
 .radio__freq { margin: 2px 0 0; font-family: var(--script); }
 .radio__mhz { font-family: var(--display); font-size: 1.3rem; color: var(--jasmine); }
 .radio__sub { opacity: 0.8; }
+/* Off state (#7a5a50 on #3a1a14, about 2.3:1) is a dim lamp on purpose; the element is aria-hidden. */
 .radio__onair {
   font-family: var(--display);
   font-size: 0.8rem;
@@ -373,7 +385,7 @@ main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
   aspect-ratio: 16 / 9;
   background:
     repeating-linear-gradient(0deg, rgba(255,199,44,0.06) 0 2px, transparent 2px 4px),
-    #120806;
+    var(--screen);
   border: 4px solid var(--ink);
   border-radius: 12px;
   overflow: hidden;
@@ -486,11 +498,6 @@ main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
   .js .scene [data-reveal] { transition: none; }
 }
 
-/* Kannada stacked consonants (ottakshara) hang below the line; give them room. */
-.poster__kn, .scene__title-kn, .slam__kn { line-height: 1.3; padding-bottom: 0.12em; }
-.poster__tag { max-width: 42ch; }
-.reel__sprockets { z-index: 3; }
-.radio__body::before { border-color: var(--turmeric); }
 .credits__by { margin: 26px 0 0; font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(255, 248, 231, 0.75); }
 .credits__by a, .credits__by b { font-family: var(--display); font-size: 1.15rem; letter-spacing: 0.02em; color: var(--turmeric); }
 .credits__by b { color: var(--jasmine); }
@@ -516,7 +523,7 @@ main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
 }
 .cb p { margin: 0 0 12px; }
 .cb__row { display: flex; flex-wrap: wrap; gap: 10px; }
-.cb .btn { cursor: pointer; font-size: 0.85rem; padding: 8px 14px; }
+.cb .btn { font-size: 0.85rem; padding: 8px 14px; }
 .credits__link {
   background: none;
   border: 0;

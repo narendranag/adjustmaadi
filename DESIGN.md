@@ -15,7 +15,6 @@ All on `:root` in `public/styles.css`. **Dark only:** there is no light theme an
 | Token | Value | For |
 | --- | --- | --- |
 | `--maroon` | `#2a0612` | the page, top of the body gradient |
-| `--maroon-2` | `#4a0b1f` | defined, unused (see Drift) |
 | `--ink` | `#140409` | every border, every hard shadow, text on light fills |
 | `--turmeric` | `#ffc72c` | the main accent: title, ticker, links, labels, the radio's shadow |
 | `--marigold` | `#ff8a00` | the poster rays, the title's first shadow step |
@@ -25,8 +24,10 @@ All on `:root` in `public/styles.css`. **Dark only:** there is no light theme an
 | `--jasmine` | `#fff8e7` | body text on maroon, light button fill |
 | `--paper` | `#f6ecd2` | the reel's screenplay paper, the cookie banner |
 | `--paper-ink` | `#2b1a10` | text on paper |
+| `--wood` → `--wood-2` | `#7a1e10` → `#4a0f08` | the radio's wood-red body (135° gradient) |
+| `--screen` | `#120806` | the radio's screen |
 
-Colours used as raw hex, outside the tokens: `#1a030b` (bottom of the body gradient), `#7a1e10` → `#4a0f08` (the radio's wood-red body), `#120806` (the radio screen), `#3a1a14` / `#7a5a50` (ON AIR when off), `#5b5146` / `#2d2721` (the countdown leader). Translucent: `rgba(255,199,44,.08)` dots, `rgba(255,138,0,.22)` rays, `rgba(228,0,124,.35)` glow, `rgba(43,26,16,.35)` dashed rules on paper, `rgba(255,248,231,.12)` and `.75` for chips and credits.
+Colours used as raw hex, outside the tokens: `#1a030b` (bottom of the body gradient), `#3a1a14` / `#7a5a50` (ON AIR when off: a dim lamp, about 2.3:1, on purpose and `aria-hidden`), `#5b5146` / `#2d2721` (the countdown leader). Translucent: `rgba(255,199,44,.08)` dots, `rgba(255,138,0,.22)` rays, `rgba(228,0,124,.35)` glow, `rgba(43,26,16,.35)` dashed rules on paper, `rgba(255,248,231,.12)` and `.75` for chips and credits.
 
 ### Surfaces and texture
 
@@ -48,14 +49,14 @@ No spacing scale: values are set per component in px (6–22px inside blocks, 56
 
 ## Type
 
-Webfonts from Google Fonts, one request in `index.html`: Baloo Tamma 2 (500, 700, 800), Bungee, Bungee Shade, Courier Prime (400, 700), Oswald (500, 700). House says no webfonts by default; this brand needs them.
+Webfonts from Google Fonts, one request in `index.html` and the same in `404.html`: Baloo Tamma 2 (500, 700, 800), Bungee, Courier Prime (400, 700), Oswald (500, 700). House says no webfonts by default; this brand needs them.
 
 | Token / use | Family | For |
 | --- | --- | --- |
 | `--display` | Bungee, then Oswald, Impact | titles, labels, buttons, the ticker, the slam's English, figures |
 | `--kn` | Baloo Tamma 2, then Noto Sans Kannada | all Kannada, at 700–800 |
 | `--script` | Courier Prime, then Courier New | the screenplay in the reel, captions, fine print, the cookie banner |
-| body | Oswald, then system-ui | running text on maroon |
+| body | Oswald 500, then system-ui | running text on maroon (Oswald 400 isn't loaded, so the body sets 500) |
 
 Scale (fluid with `clamp`, mobile → desktop):
 
@@ -90,13 +91,13 @@ One page, one column, top to bottom:
 7. **Cookie banner** (`.cb`, from `consent.js`): fixed at the bottom, max 560px, paper card, 3px ink border, kumkum hard shadow, Courier Prime, the site's own buttons.
 8. **404:** the poster alone, "ದಾರಿ ತಪ್ಪಿದೆ / 404", one primary button back to the film.
 
-**Focus:** `outline: 3px solid var(--magenta); outline-offset: 3px` on buttons, chips, knobs and tracks (house: 2px amber).
+**Focus:** `outline: 3px solid var(--magenta); outline-offset: 3px` on buttons, chips, knobs, tracks and the "Cookie settings" link (house: 2px amber).
 
 **Motion** is part of the joke here (house: motion only for change): ticker, rays, countdown, staged reveal, slam, shake, ON AIR blink. Under `prefers-reduced-motion: reduce` the loops, the slam and the shake stop and the reveal is instant (house: same rule).
 
 ## Imagery and illustration
 
-No photographs and no image files. Every picture is CSS: dot grids, conic sunbursts, sprocket stripes, scanlines, the film leader, the radio's handle, hard shadows. Glyphs as ornaments: ★ in the ticker, ▸ before cast, ♪ for the playing track, • between presenter words. Knobs use ▶ ⏸ ⏭ 🔀 as icons. The favicon is an SVG: a turmeric disc, ink ring, "AM" in kumkum (Impact, since an SVG favicon can't load Bungee). Video comes only from the official YouTube embeds.
+No photographs and no image files. Every picture is CSS: dot grids, conic sunbursts, sprocket stripes, scanlines, the film leader, the radio's handle, hard shadows. Glyphs as ornaments: ★ in the ticker, ▸ before cast, ♪ for the playing track, • between presenter words. Knobs use ▶ ⏸ ⏭ 🔀 as icons, each followed by U+FE0E so they render as text glyphs rather than colour emoji where the font allows. The favicon is an SVG: a turmeric disc, ink ring, "AM" in kumkum (Impact, since an SVG favicon can't load Bungee). Video comes only from the official YouTube embeds.
 
 ## Words
 
@@ -114,14 +115,4 @@ No photographs and no image files. Every picture is CSS: dot grids, conic sunbur
 
 ## Drift to decide
 
-Recorded, not fixed. Recommendations in italics.
-
-1. **The 404 page loads no webfonts.** `404.html` links `styles.css` but not the Google Fonts stylesheet, so its title falls back to Oswald/Impact and Noto Sans Kannada. *Add the same fonts `<link>` to `404.html`.*
-2. **Bungee Shade is loaded and never used.** *Drop it from the fonts URL (one less font to fetch).*
-3. **Oswald 400 isn't loaded** but body text asks for the default weight, so the browser uses 500. *Either load 400 or set `body { font-weight: 500 }` so the CSS says what renders.*
-4. **`--maroon-2` is unused,** while eight other colours sit as raw hex (radio body, screen, ON AIR off, leader, gradient end). *Name the ones that recur (`--wood`, `--wood-2`, `--screen`) and delete `--maroon-2`.*
-5. **Late overrides at the bottom of `styles.css`** restate earlier rules: `.poster__tag` max-width 34ch → 42ch, `.radio__body::before` border `--ink` → `--turmeric`, `.reel__sprockets` z-index, the Kannada line-height fix. *Fold each into its original rule.*
-6. **"Cookie settings" (`.credits__link`) has no focus ring** of its own; it's outside the `:focus-visible` list. *Add it to that list.*
-7. **ON AIR when off** is `#7a5a50` on `#3a1a14`, about 2.3:1. It is `aria-hidden` and decorative, so it may be fine as a dim lamp. *Leave it; note it's intentional.*
-8. **Emoji as knob icons** (▶ ⏭ 🔀 render as colour emoji on some systems, as text on others). *Keep them — they suit the look — but use the text presentation selector (U+FE0E) so they render the same everywhere.*
-9. **`.cb .btn { cursor: pointer }`** repeats what `button` already sets. *Delete it.*
+None open. The nine items found on 2026-11-28 were fixed on the owner's decision (branch `fix/design-drift`): fonts on the 404, Bungee Shade dropped, body weight 500, `--wood`/`--wood-2`/`--screen` named and `--maroon-2` deleted, late overrides folded into their rules, a focus ring on "Cookie settings", the ON AIR lamp noted as dim on purpose, U+FE0E on the knob icons, a redundant `cursor` removed.

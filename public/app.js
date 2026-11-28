@@ -234,7 +234,7 @@
 
   function setPlayLabel(playing) {
     const b = $('radio-play')
-    b.innerHTML = playing ? '⏸ <span>Pause</span>' : '▶ <span>Play</span>'
+    b.innerHTML = playing ? '⏸︎ <span>Pause</span>' : '▶︎ <span>Play</span>'
     b.setAttribute('aria-label', playing ? 'Pause' : 'Play')
     $('onair').classList.toggle('is-on', playing)
   }
